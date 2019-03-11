@@ -153,7 +153,41 @@ function playSound(get) {
         
         
 }
-    
+playAll.addEventListener('click',function(){
+    soundRecorder.forEach(sound => {
+        setTimeout(
+            () => {
+                let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                
+                soundElement.currentTime = 0;
+                
+                soundElement.play();
+            }
+            , sound.time);
+    })
+    soundRecorder1.forEach(sound => {
+        setTimeout(
+            () => {
+                let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
+                
+                soundElement.currentTime = 0;
+                
+                soundElement.play();
+            }
+            , sound.time);
+    })
+    soundRecorder2.forEach(sound => {
+        setTimeout(
+            () => {
+                let soundElement = document.querySelector(`#${sound.name}2`); // odtwarzaj player
+                
+                soundElement.currentTime = 0;
+                
+                soundElement.play();
+            }
+            , sound.time);
+    })
+});
 
 
 
