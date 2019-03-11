@@ -62,17 +62,70 @@ playButton.addEventListener('click', () => {
             , sound.time);
     })
 })
-soundRecorder1.forEach(sound => {
-    setTimeout(
-        () => {
-            let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
-            
-            soundElement.currentTime = 0;
-            
-            soundElement.play();
-        }
-        , sound.time);
-})
+recordButton1 = document.querySelector('#startRecording1');
+    
+    stopButton1 = document.querySelector('#stopRecording1');
+   
+    playButton1 = document.querySelector('#playRecording1');
+    
+
+    recordButton1.addEventListener('click', () =>{
+        startTime1 = Date.now();
+        recording1 = true;
+        soundRecorder1 = [];
+    })
+  
+    stopButton1.addEventListener('click', () =>{
+        recording1 = false;
+    })
+   
+
+    playButton1.addEventListener('click', () => {
+        soundRecorder1.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+    })
+
+    
+    recordButton2 = document.querySelector('#startRecording2');
+    
+    stopButton2 = document.querySelector('#stopRecording2');
+   
+    playButton2 = document.querySelector('#playRecording2');
+    
+
+    recordButton2.addEventListener('click', () =>{
+        startTime2 = Date.now();
+        recording2 = true;
+        soundRecorder2 = [];
+    })
+  
+    stopButton2.addEventListener('click', () =>{
+        recording2 = false;
+    })
+   
+
+    playButton2.addEventListener('click', () => {
+        soundRecorder2.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}2`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+    })
 function Box(className){
     
     document.querySelector(`.${className}`).classList.add('light');
