@@ -49,3 +49,31 @@ h1 {
     transition: 0.3s all cubic-bezier(0.95, 0.7, 0.795, 0.1)
     
 }
+.sound span {
+    color: red;
+    font-size: 30px;
+    
+}
+.sound:hover, .light {
+    background: rgba(112, 116, 100, 0.3);
+    width: 80px;
+    height: 80px;
+    
+}
+button{
+    display: inline-block;
+    
+    padding: 15px 15px;
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    border: solid 2px black;
+    background-color: rgb(153, 74, 10, 0.6);
+    
+    transition: 0.1s all cubic-bezier(0.95, 0.7, 0.795, 0.1)
+}
+
+button:hover {
+    opacity: 0.5;
+    color: white;
+}
