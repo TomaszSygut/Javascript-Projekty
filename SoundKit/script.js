@@ -188,6 +188,40 @@ playAll.addEventListener('click',function(){
             , sound.time);
     })
 });
+if (recording == true) {
+        
+    soundRecorder.push({
+        name: sound.name,             // zapisz nagranie
+        time: Date.now() - startTime
+        
+    })
+    
+    
+}
+/////////////////////////////////////////////////////////////
+if (recording1 == true) {
+    
+    soundRecorder1.push({
+        name: sound.name,             // zapisz nagranie
+        time: Date.now() - startTime1
+        
+    })
+    
+    
+}
+
+if (recording2 == true) {
+    
+    soundRecorder2.push({
+        name: sound.name,             // zapisz nagranie
+        time: Date.now() - startTime2
+        
+    })
+    
+    
+}
+///////////////////////////////////////////////////////////////
+
 
 
 
