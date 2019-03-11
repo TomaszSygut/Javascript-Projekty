@@ -37,32 +37,34 @@ function drumKit() {
    
     playButton = document.querySelector('#playRecording');
     
-}
-recordButton.addEventListener('click', () =>{
-    startTime = Date.now();
-    recording = true;
-    soundRecorder = [];
-})
 
-stopButton.addEventListener('click', () =>{
-    recording = false;
-})
-
-
-playButton.addEventListener('click', () => {
-    soundRecorder.forEach(sound => {
-        setTimeout(
-            () => {
-                let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
-                
-                soundElement.currentTime = 0;
-                
-                soundElement.play();
-            }
-            , sound.time);
+    recordButton.addEventListener('click', () =>{
+        startTime = Date.now();
+        recording = true;
+        soundRecorder = [];
     })
-})
-recordButton1 = document.querySelector('#startRecording1');
+  
+    stopButton.addEventListener('click', () =>{
+        recording = false;
+    })
+   
+
+    playButton.addEventListener('click', () => {
+        soundRecorder.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+    })
+
+    ///////////////////////////////////////////////////////////////////
+    recordButton1 = document.querySelector('#startRecording1');
     
     stopButton1 = document.querySelector('#stopRecording1');
    
@@ -84,7 +86,7 @@ recordButton1 = document.querySelector('#startRecording1');
         soundRecorder1.forEach(sound => {
             setTimeout(
                 () => {
-                    let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
                     
                     soundElement.currentTime = 0;
                     
@@ -126,6 +128,45 @@ recordButton1 = document.querySelector('#startRecording1');
                 , sound.time);
         })
     })
+
+
+    playAll.addEventListener('click',function(){
+        soundRecorder.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+        soundRecorder1.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+        soundRecorder2.forEach(sound => {
+            setTimeout(
+                () => {
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                    
+                    soundElement.currentTime = 0;
+                    
+                    soundElement.play();
+                }
+                , sound.time);
+        })
+    });
+    /////////////////////////////////////////////////////////////////////////
+}
 function Box(className){
     
     document.querySelector(`.${className}`).classList.add('light');
@@ -150,78 +191,39 @@ function playSound(get) {
     
     
     
+    if (recording == true) {
+        
+        soundRecorder.push({
+            name: sound.name,             // zapisz nagranie
+            time: Date.now() - startTime
+            
+        })
         
         
+    }
+    /////////////////////////////////////////////////////////////
+    if (recording1 == true) {
+        
+        soundRecorder1.push({
+            name: sound.name,             // zapisz nagranie
+            time: Date.now() - startTime1
+            
+        })
+        
+        
+    }
+    
+    if (recording2 == true) {
+        
+        soundRecorder2.push({
+            name: sound.name,             // zapisz nagranie
+            time: Date.now() - startTime2
+            
+        })
+        
+        
+    }
+    ///////////////////////////////////////////////////////////////
 }
-playAll.addEventListener('click',function(){
-    soundRecorder.forEach(sound => {
-        setTimeout(
-            () => {
-                let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
-                
-                soundElement.currentTime = 0;
-                
-                soundElement.play();
-            }
-            , sound.time);
-    })
-    soundRecorder1.forEach(sound => {
-        setTimeout(
-            () => {
-                let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
-                
-                soundElement.currentTime = 0;
-                
-                soundElement.play();
-            }
-            , sound.time);
-    })
-    soundRecorder2.forEach(sound => {
-        setTimeout(
-            () => {
-                let soundElement = document.querySelector(`#${sound.name}2`); // odtwarzaj player
-                
-                soundElement.currentTime = 0;
-                
-                soundElement.play();
-            }
-            , sound.time);
-    })
-});
-if (recording == true) {
-        
-    soundRecorder.push({
-        name: sound.name,             // zapisz nagranie
-        time: Date.now() - startTime
-        
-    })
-    
-    
-}
-/////////////////////////////////////////////////////////////
-if (recording1 == true) {
-    
-    soundRecorder1.push({
-        name: sound.name,             // zapisz nagranie
-        time: Date.now() - startTime1
-        
-    })
-    
-    
-}
-
-if (recording2 == true) {
-    
-    soundRecorder2.push({
-        name: sound.name,             // zapisz nagranie
-        time: Date.now() - startTime2
-        
-    })
-    
-    
-}
-///////////////////////////////////////////////////////////////
-
-
 
 
