@@ -37,9 +37,42 @@ function drumKit() {
    
     playButton = document.querySelector('#playRecording');
     
-
-   
 }
+recordButton.addEventListener('click', () =>{
+    startTime = Date.now();
+    recording = true;
+    soundRecorder = [];
+})
+
+stopButton.addEventListener('click', () =>{
+    recording = false;
+})
+
+
+playButton.addEventListener('click', () => {
+    soundRecorder.forEach(sound => {
+        setTimeout(
+            () => {
+                let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
+                
+                soundElement.currentTime = 0;
+                
+                soundElement.play();
+            }
+            , sound.time);
+    })
+})
+soundRecorder1.forEach(sound => {
+    setTimeout(
+        () => {
+            let soundElement = document.querySelector(`#${sound.name}1`); // odtwarzaj player
+            
+            soundElement.currentTime = 0;
+            
+            soundElement.play();
+        }
+        , sound.time);
+})
 function Box(className){
     
     document.querySelector(`.${className}`).classList.add('light');
