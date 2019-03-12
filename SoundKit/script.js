@@ -119,7 +119,7 @@ function drumKit() {
         soundRecorder2.forEach(sound => {
             setTimeout(
                 () => {
-                    let soundElement = document.querySelector(`#${sound.name}2`); // odtwarzaj player
+                    let soundElement = document.querySelector(`#${sound.name}`); // odtwarzaj player
                     
                     soundElement.currentTime = 0;
                     
