@@ -43,34 +43,38 @@ let buttonSave = function(){
     notes.push(n);
     //save notes array to local storage
     ls.saveNote(notes);
+    
     //retrieve new version of data from local storage
     retriveNotes();
     //display notes in list.
     displayList();
+    
 }
 
 let displayList = function(){
     //clean list views for pinned and unpinned notes
     document.querySelector('#note-list-pin').innerHTML='';
-    document.querySelector('#note-list-pin').innerHTML='';
+    
     //iterate through notes.
     notes.forEach(n => {
         //create html element 
+        
         item = document.createElement('li');
+        time = document.createElement('p');
+        
         //append styles (color) from n array.
         item.style.background = n.color;
         //appned title text
         item.innerHTML = n.title;
+    
+        
         //event handler for selecting item in list
         item.onclick = function(){selectNote(n)}
-        //check if notes is set as pinned
-        if(n.pinned){
-            //if pinned display in pinned notes section
-            document.querySelector('#note-list-pin').appendChild(item);
-        }else{
-            //else display in lower section
-            document.querySelector('#note-list-pin').appendChild(item);
-        }
+        
+        
+      document.querySelector('#note-list-pin').appendChild(item);
+      
+        
             
     });
 }
@@ -81,16 +85,8 @@ let selectNote = function(n) {
     document.querySelector('#note-color').value = n.color;
     document.querySelector('#pin').checked = n.pinned;
     document.querySelector('#note').value = n.text;
+    
     pin = n.pinned;
-}
-//styled chceckbox behaves like normal button so we need to handle clicks. (flip-flop?)
-let pinCheck = function(){
-    if(pin){
-        pin = false;
-    }else{
-        pin = true;
-    }
-    console.log(pin);
 }
 //load data on  'onLoad' window event
 window.onload = function(){
