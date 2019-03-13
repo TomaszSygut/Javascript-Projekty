@@ -1,0 +1,127 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Slabo 27px', serif;
+    color: #2f3640;
+    font-size: 28px;
+    background-color: rgb(175, 180, 175);
+}
+
+.note-editor{
+    width: 100vw;
+    height: 30vh;
+    
+    
+    
+    
+}
+.note-editor>.bar{
+    display: flex;
+    flex-direction: row;
+    
+}
+.bar>input[type="text"]{
+    height: 65px;
+    
+    color: black;
+    width: 100%;
+    font-size: 50px;
+    border: none;
+    text-align: center;
+    background-color: rgb(175, 180, 175);
+
+    
+}
+
+.bar>button{
+    display: block;
+    position: absolute;
+    top: 250px;
+    height: 50px;
+    font-size: 35px;
+    width: 100vw;
+    background-color: rgb(134, 73, 15);
+    border: none;
+    color: #f5f6fa;
+}
+p{
+    position: absolute;
+    right: 10px;
+    top: 50px;
+}
+.bar>#note-color{
+    border: none;
+    position: absolute;
+    background-color: rgb(175, 180, 175);
+    right: 70px;
+    width: 70px;
+    height: 70px;
+}
+.bar>button:hover{
+    background: #3b2925;
+    opacity: 0.8;
+    transition-delay: 0.1s;
+}
+.note-editor>.text{
+    height: 20vh;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    color: black;
+    
+}
+.text>textarea{
+    border: none;
+    flex:1;
+    color: #0e0d0d;
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(175, 180, 175);
+}
+
+
+.note-list{
+    width: 100vw;
+    height: 80px;
+    
+     display: block;
+    
+     
+ }
+.note-list span{
+    display: block;
+    position: relative;
+    text-align: center;
+    color: #070402;
+    background-color: rgb(175, 180, 175);
+    margin: 0;
+    padding: 0;
+    
+    
+}
+.note-list ul{
+    text-decoration: none;
+    list-style: none;
+    
+    margin: 0px;
+    padding: 0px;
+}
+.note-list ul>li{
+    text-emphasis: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    height: 100px;
+    margin-top: 50px;
+    border-radius: 20px;
+    border: solid black;
+    text-align: center;
+    
+    
+    
+    
+}
+.note-list ul>li:hover{
+    opacity: 0.9;
+}
