@@ -7,11 +7,14 @@ document.getElementById('photo').onchange = function(e) {
     
   };
   function draw() {
+    
     let canvas = document.getElementById('myCanvas');
     canvas.width = this.width;
     canvas.height = this.height;
+    
     let ctx = canvas.getContext('2d');
     ctx.drawImage(this, 0,0);
+    
    
     
   }
@@ -28,6 +31,7 @@ window.onload = function()
     const sepia = document.getElementById('sepia');
     const invert = document.getElementById('invert');
 
+    // filtry
     contrast.onkeyup = contrast.onchange = function()
      {
          let contrast = document.getElementById('myCanvas'),
@@ -78,3 +82,43 @@ window.onload = function()
     
      
 }
+let points=new Array();	
+colorInput = document.getElementById("color");
+		function start(e){
+		  let mouseX = e.pageX - canvas.offsetLeft;
+		  let mouseY = e.pageY - canvas.offsetTop;
+		  paint = true;
+		  ctx.beginPath();
+		  ctx.moveTo(mouseX,mouseY);
+		  points[points.length]=[mouseX,mouseY];
+		};
+
+		function draww(e){
+
+		  if(paint){
+            let mouseX = e.pageX - canvas.offsetLeft;
+            let mouseY = e.pageY - canvas.offsetTop; 
+			 ctx.lineTo(mouseX,mouseY);
+			 ctx.stroke();	
+			 ctx.strokeStyle = colorInput.value;
+			 ctx.lineJoin = ctx.lineCap = 'round';
+
+			 points[points.length]=[mouseX,mouseY];
+		  }
+		  
+		}
+		function stop(e){
+		  paint=false;
+		//  var s=JSON.stringify(points);
+		// 	localStorage['lines']=s;
+		}  
+	
+
+		
+		let paint=false;
+		let canvas = document.getElementById('myCanvas');
+		let ctx=canvas.getContext("2d");
+		canvas.addEventListener('mousedown',start);
+		canvas.addEventListener('mousemove',draww);
+        canvas.addEventListener('mouseup',stop);
+        let color = document.getElementById('color');
