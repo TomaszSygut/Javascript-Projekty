@@ -9,13 +9,12 @@ class Note{
 }
 class Storage{
     constructor(){}
-    //key by which we call our data from localstorage
+
     appKey = "notepad_project"
-    //saving notes to localStorage using out appkey as JSON stringified data. 
+    //Zapisuje notatki do localstorage
     saveNote(notes){
         localStorage.setItem(this.appKey,JSON.stringify(notes));
     }
-    //retrieving notes as JSON data and parsing it to JS array;
     getNotes(){
         return JSON.parse(localStorage.getItem(this.appKey));
     }
@@ -23,62 +22,43 @@ class Storage{
 }
 //localStorage
 let ls = new Storage();
-//notes array to store our notes
 let notes = new Array();
-//pin variable for editor (used to pin notes top of the list)
 let pin = false;
-//retrieving notes from localStorage
 let retriveNotes = function(){
-    //clear array before getting data
     notes = [];
     let data = ls.getNotes();
-    //leave empty array if localStorage returns empty JSON
+    
     if(data != null)notes = data;
 }
-//Save button handler
+//Zapisz przycisk
 let buttonSave = function(){
-    //create new Note object
+    //Tworzy nowy obiekt
     n = new Note(document.querySelector('#title').value, document.querySelector('#note-color').value, pin, document.querySelector('#note').value);
-    //push note object to notes array
     notes.push(n);
-    //save notes array to local storage
+    //Zapisuje do localstorage
     ls.saveNote(notes);
-    
-    //retrieve new version of data from local storage
     retriveNotes();
-    //display notes in list.
+    //Wyświetl liste
     displayList();
     
 }
 
 let displayList = function(){
-    //clean list views for pinned and unpinned notes
     document.querySelector('#note-list-pin').innerHTML='';
-    
-    //iterate through notes.
     notes.forEach(n => {
-        //create html element 
-        
+        //Tworzy HTML ELEMENT
         item = document.createElement('li');
         time = document.createElement('p');
-        
-        //append styles (color) from n array.
         item.style.background = n.color;
-        //appned title text
         item.innerHTML = n.title;
-    
-        
-        //event handler for selecting item in list
         item.onclick = function(){selectNote(n)}
-        
-        
       document.querySelector('#note-list-pin').appendChild(item);
       
         
             
     });
 }
-//handling note selection from list (variable n - note object)
+
 let selectNote = function(n) {
 
     document.querySelector('#title').value = n.title;
@@ -88,7 +68,7 @@ let selectNote = function(n) {
     
     pin = n.pinned;
 }
-//load data on  'onLoad' window event
+//ładuje dane
 window.onload = function(){
     retriveNotes();
     displayList();
