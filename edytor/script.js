@@ -20,8 +20,6 @@ function draw() {
 function failed() {
   console.error("The provided file couldn't be loaded as an Image media");
 }
-
-
 window.onload = function()
 {
   
@@ -78,27 +76,44 @@ window.onload = function()
       invert.style.filter = "invert("+val+"%)";
   }
 
-  
-   
+
 }
 
       
-var el = document.getElementById('myCanvas');
-var ctx = el.getContext('2d');
-var isDrawing;
+let el = document.getElementById('myCanvas');
+let ctx = el.getContext('2d');
+
+ let isDrawing;
 
 el.onmousedown = function(e) {
   isDrawing = true;
   ctx.lineWidth = 10;
   ctx.lineJoin = ctx.lineCap = 'round';
-  ctx.moveTo(e.clientX, e.clientY);
+  let pos = getMousePos(el,e);
+  
 };
 el.onmousemove = function(e) {
   if (isDrawing) {
-    ctx.lineTo(e.clientX, e.clientY);
+    let pos = getMousePos(el,e);
+    ctx.beginPath();
+    ctx.moveTo(pos.x,pos.y);
+    ctx.LineTo(pos.x,pos.y);
+   
     ctx.stroke();
   }
 };
+function getMousePos(canvas, evt){
+  let rect = canvas.getBoundingClientRect(),
+  scaleX = canvas.width / rect.width,
+  scaleY = canvas.height / rect.height;
+  return {
+    x: (evt.clientX - rect.left) * scaleX,
+    y: (evt.clientY - rect.top) * scaleY
+  }
+
+}
 el.onmouseup = function() {
   isDrawing = false;
 };
+
+
