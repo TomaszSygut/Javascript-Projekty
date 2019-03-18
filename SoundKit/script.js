@@ -17,6 +17,7 @@ let recordButton2, stopButton2, playButton2;
 let startTime2;
 let recording2 = false;
 //////////////////////////
+// Przypiecie dzwiekow do przyciskow
 
 const sounds = [
     { id: 97, name: 'boom'},
@@ -26,7 +27,7 @@ const sounds = [
     { id: 103, name: 'snare'},
     { id: 104, name: 'tink'},
 ]
-
+// przypiecie przyciskow
 function drumKit() {
     document.body.addEventListener('keypress', playSound);
     playAll = document.querySelector('#playAllRecording');
