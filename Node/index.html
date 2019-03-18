@@ -15,6 +15,7 @@
    
                     <input type="color" id="note-color" value="#f6b73c">
                     <p>Change Your Color</p>
+                    <input type="checkbox" name="pin" id="pin" value="Bike">
                     
                     <button onclick="buttonSave()">Save Note</button>
                 </div>
@@ -25,7 +26,13 @@
     
         <div class="note-list">
             <span>Pinned Notes:</span>
-            <ul id="note-list-pin">
+            <ul class="note-list-pin">
+            </ul>
+        </div>
+    
+        <div class="note-list">
+            <span>Not pinned Notes:</span>
+            <ul class="note-list-unpin">
             </ul>
         </div>
         

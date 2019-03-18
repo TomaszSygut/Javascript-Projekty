@@ -32,7 +32,11 @@ body{
 
     
 }
-
+#pin{
+    top:10px;
+    left: 10px;
+    position: absolute;
+}
 .bar>button{
     display: block;
     position: absolute;
@@ -44,7 +48,7 @@ body{
     border: none;
     color: #f5f6fa;
 }
-p{
+.bar>p{
     position: absolute;
     right: 10px;
     top: 50px;
@@ -82,8 +86,8 @@ p{
 
 .note-list{
     width: 100vw;
-    height: 80px;
-    
+    min-height: 80px;
+    margin-top: 30px;
      display: block;
     
      
@@ -112,7 +116,7 @@ p{
     margin-left: auto;
     margin-right: auto;
     width: 50vw;
-    height: 100px;
+    min-height: 100px;
     margin-top: 50px;
     border-radius: 20px;
     border: solid black;
