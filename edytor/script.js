@@ -1,4 +1,4 @@
-document.getElementById('photo').onchange = function(e) {
+document.getElementById('file').onchange = function(e) {
   let img = new Image();
   img.onload = draw;
   img.onerror = failed;
