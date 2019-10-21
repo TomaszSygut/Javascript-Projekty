@@ -1,1 +1,1 @@
-# Javascript-Projekty
+# Javascript-Projects on my university
